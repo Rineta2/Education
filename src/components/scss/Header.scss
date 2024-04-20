@@ -1,0 +1,214 @@
+@import './Variable.scss';
+
+/*=============== HEADER ===============*/
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 99;
+  transition: background-color .3s ease-in-out;
+
+  &.fixed {
+    background-color: #fefefe;
+  }
+
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    height: 4rem;
+    padding: 0 2rem;
+    margin: 0 auto;
+    z-index: 999;
+
+    .logo {
+      a {
+        font-size: 1.5rem;
+        color: $text-c;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        column-gap: .3rem;
+
+        .logo__icon {
+          font-size: 1.6rem;
+          font-weight: initial;
+        }
+      }
+    }
+
+    .nav__list {
+      display: flex;
+
+      &.show {
+        left: 0;
+      }
+
+      @media only screen and (max-width: 1220px) {
+        position: absolute;
+        height: 100vh;
+        width: 80%;
+        left: -100%;
+        max-width: 350px;
+        top: 0;
+        background-color: #fefefe;
+        flex-direction: column;
+        overflow-x: hidden;
+        display: block;
+        transition: .3s ease-in-out;
+      }
+
+      .nav__item {
+        margin: 0 1.5rem;
+        padding: 1.4rem 0;
+
+        .nav__link {
+          font-weight: 500;
+          color: $text-c;
+          transition: color .3s ease-in-out;
+
+          &:hover {
+            color: $primary-c;
+          }
+
+          &.active {
+            color: $primary-c;
+          }
+        }
+
+        span {
+          cursor: pointer;
+        }
+
+        &:hover {
+          .dropdown__icon {
+            transform: rotate(180deg);
+            transition: all .3s ease-in-out;
+          }
+        }
+      }
+
+      .dropdown {
+
+        &:hover {
+          .megamenu {
+            color: $text-c;
+            visibility: visible;
+            transition: all .3s ease-in-out;
+            opacity: 1;
+          }
+
+          @media only screen and (max-width: 1220px) {
+            .megamenu {
+              height: 100%;
+            }
+          }
+        }
+
+        .megamenu {
+          position: absolute;
+          width: 100%;
+          top: 4rem;
+          left: 0;
+          background-color: #fefefe;
+          display: flex;
+          justify-content: space-around;
+          border-radius: 0 0 20px 20px;
+          box-shadow: 0 23px 23px -21 rgba(0, 0, 0, .25);
+          z-index: -99;
+          visibility: hidden;
+          opacity: 0;
+
+          @media only screen and (max-width: 1220px) {
+            justify-content: center;
+            flex-wrap: wrap;
+          }
+
+          @media only screen and (max-width: 1220px) {
+            flex-direction: column;
+            position: static;
+            box-shadow: none;
+            border-radius: 0;
+            height: 0;
+            max-width: 350px;
+            align-items: start;
+            overflow: hidden;
+          }
+
+          .content {
+            display: flex;
+            flex-direction: column;
+            padding: 1rem 1rem;
+
+            .megamenu__item {
+              display: flex;
+              align-items: center;
+              margin-bottom: 1rem;
+
+              .menu__icon {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 32px;
+                height: 32px;
+                border-radius: 50%;
+                background-color: $primary-c;
+                margin-right: .5rem;
+
+                .icon {
+                  font-size: 1.1rem;
+                  color: $body-c;
+                }
+              }
+
+              .megamenu__link {
+                a {
+                  color: $text-c;
+                  font-weight: 500;
+                  font-size: 1rem;
+
+                  &:hover {
+                    color: $primary-c;
+                  }
+                }
+              }
+            }
+
+            .header__megamenu {
+              font-weight: 600;
+              color: $text-c;
+              margin-bottom: 1rem;
+            }
+          }
+        }
+      }
+    }
+
+    .toggle__menu {
+      display: none;
+
+      @media only screen and (max-width: 1220px) {
+        display: block;
+        right: 1.5rem;
+        top: 1.5rem;
+        width: 30px;
+        height: 30px;
+        background-color: $primary-c;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 20px;
+
+        .hamburger,
+        .close {
+          font-size: 1.2rem;
+          cursor: pointer;
+          color: $body-c;
+        }
+
+      }
+    }
+  }
+}

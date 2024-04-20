@@ -1,0 +1,107 @@
+@import './Variable.scss';
+
+.sidebar {
+  height: 100%;
+  width: 150px;
+  position: fixed;
+  top: 0;
+  left: -100%;
+  transition: all 0.5s ease-in-out;
+  background-color: $primary-c;
+  padding-top: 20px;
+
+  .prof {
+    width: 120px;
+    height: 50px;
+    margin: 0 auto;
+    background-color: $body-c;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    margin-bottom: 2rem;
+
+    h1 {
+      font-size: $h2-fs;
+      letter-spacing: 1px;
+    }
+  }
+
+  &.open {
+    left: 0;
+  }
+
+  .side__menu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10rem;
+
+    ul {
+      display: flex;
+      flex-direction: column;
+      align-items: start;
+      gap: 5rem;
+
+      li {
+        width: 130px;
+        height: 50px;
+        background-color: $body-c;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        a {
+          font-size: $h1-fs;
+          color: $title-c;
+          letter-spacing: 1px;
+          display: flex;
+          align-items: center;
+          gap: .5rem;
+
+          @media only screen and (max-width: 768px) {
+            font-size: $h3-fs;
+          }
+
+          .icons {
+            color: $title-c;
+            font-size: $big-fs;
+
+            @media only screen and (max-width: 768px) {
+              font-size: $h3-fs;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.toggle {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  width: 40px;
+  height: 40px;
+  background-color: $primary-c;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+
+  .icon {
+    color: $body-c;
+    font-size: $h1-fs;
+    cursor: pointer;
+  }
+}
+
+.contet {
+  margin-left: 250px;
+  padding: 20px;
+
+  @media only screen and (max-width: 768px) {
+    margin-left: 0;
+  }
+}

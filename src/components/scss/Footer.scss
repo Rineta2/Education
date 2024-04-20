@@ -1,0 +1,120 @@
+@import './Variable.scss';
+
+footer {
+  padding: 3rem;
+  background-color: #fefefe;
+
+  .footer__container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    place-items: center;
+    text-align: center;
+
+    @media only screen and (max-width: 468px) {
+      grid-template-columns: 1fr;
+    }
+
+    .logo {
+      text-align: center;
+
+      img {
+        width: 100px;
+        height: 100px;
+        object-fit: cover;
+      }
+
+      .social {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 2rem;
+
+        .social__link {
+          margin-left: 15px;
+          color: #000;
+          width: 30px;
+          height: 30px;
+          background-color: #f7f7f7;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border-radius: 16px;
+          transition: .3s ease-in-out;
+
+          &:hover {
+            background-color: $primary-c;
+            color: $body-c;
+          }
+
+          .icons {
+            font-size: $normal-fs;
+          }
+        }
+      }
+
+      p {
+        font-size: $normal-fs;
+        color: $title-c;
+      }
+    }
+
+
+    .quick {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.7;
+
+      span {
+        margin-bottom: 1rem;
+        font-size: $h3-fs;
+        letter-spacing: 1px;
+      }
+
+      a {
+        text-decoration: none;
+        color: $title-c;
+        font-size: $normal-fs;
+      }
+    }
+  }
+}
+
+
+.top {
+  position: fixed;
+  bottom: 40px;
+  color: $body-c;
+  left: -100%;
+  width: 40px;
+  height: 40px;
+  background-color: $primary-c;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 2s ease-in-out;
+  z-index: 999;
+  animation: top 2s linear infinite;
+
+  @media only screen and (max-width: 468px) {
+    bottom: 150px;
+  }
+
+  @keyframes top {
+    0% {
+      transform: translate(0, 0);
+    }
+
+    100% {
+      transform: translate(0, -8px);
+    }
+  }
+
+  .icon {
+    font-size: 2rem;
+  }
+}
+
+.arrow {
+  left: 15px;
+}
